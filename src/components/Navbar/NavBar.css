@@ -1,0 +1,4 @@
+.custom-navbar .navbar-brand, .custom-navbar .nav-link {
+    color: var(--clr-bg-neutral); 
+
+}
