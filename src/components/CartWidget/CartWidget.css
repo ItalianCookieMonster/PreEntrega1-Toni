@@ -1,5 +1,5 @@
 
-button.btn {
+button.btn.btn-cart {
     background-color: var(--clr-accent-primary);
     border-color: var(--clr-bg-neutral);
     display: flex;

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap");
 
 :root {
-    --clr-accent-primary: #2e7d32;
+    --clr-accent-primary: #baa287;
     --clr-accent-secondary: #388e3c;
 
     --clr-bg-neutral: #f5f5f5;
@@ -38,4 +38,16 @@ body{
     background-color: var(--clr-bg-neutral);
     font-family: var(--ff-primary);
     color: var(--clr-text-neutral);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.text-beige {
+    color: var(--clr-bg-neutral);
 }
