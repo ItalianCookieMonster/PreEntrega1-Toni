@@ -1,12 +1,19 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 import CartWidget from '../CartWidget/CartWidget';
 
 
 const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-primary text-beige">
-            <div className="container-fluid">
+
+        <Navbar expand='lg' bg='primary'>
+            <Container>
                 <NavLink className="navbar-brand text-beige" to="/">
                     <img
                         alt=""
@@ -17,36 +24,34 @@ const NavBar = () => {
                     />{' '}
                     Sustainishop
                 </NavLink>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <NavLink className="nav-link text-beige active" to="/">Contact</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink className="nav-link text-beige active" to="/">About</NavLink>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <NavLink className="nav-link dropdown-toggle text-beige active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Shop
-                            </NavLink>
-                            <ul className="dropdown-menu bg-primary" aria-labelledby="navbarDropdown">
-                                <li> <NavLink className="dropdown-item" to="/category/on-the-go">On-the-Go Essential</NavLink></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li> <NavLink className="dropdown-item" to="/category/kitchen">Kitchen Sustainability</NavLink></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li> <NavLink className="dropdown-item" to="/category/bathroom">Bathroom Eco-Fixes</NavLink></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <Link to='/cart'>
-                        <CartWidget />
-                    </Link>
-                </div>
-            </div>
-        </nav>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link to='/'>Home</Nav.Link>
+                        <Nav.Link to='/'>About us</Nav.Link>
+                        <Nav.Link to='/'>Contact us</Nav.Link>
+                        <NavDropdown title="Shop" id="collasible-nav-dropdown" >
+                            <li className="dropdown-item" >
+                                <Nav.Link to='/category/on-the-go'>On the go</Nav.Link>
+                            </li>
+                            <li className="dropdown-item">
+                                <Nav.Link to='/category/kitche'>Kitchen sustainability</Nav.Link>
+                            </li>
+                            <li className="dropdown-item">
+                                <Nav.Link to='/category/bathroom'>Bathroom eco-fixeso</Nav.Link>
+                            </li>
+                        </NavDropdown>
+                    </Nav>
+                    <Nav>
+                        <Nav.Link to='/cart'>
+                            <CartWidget />
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
+
+        </Navbar>
+
     )
 }
 

@@ -1,44 +1,47 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom"
-import { mFetch } from "../../utils/mockFetch";
-import ItemList from "./ItemList/ItemList";
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore'
 
 import Container from "react-bootstrap/Container";
-import Spinner from "react-bootstrap/Spinner";
+// import Hero from '../Hero/Hero';
+import Loading from "../Loading/Loading";
+import ItemList from "./ItemList/ItemList";
+import HeroCarousel from "../HeroSection/HeroCarousel/HeroCarousel";
 
 const ItemListContainer = () => {
-    // eslint-disable-next-line react/prop-types
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true);
     const { cid } = useParams()
 
-    useEffect(()=> {
-        if(cid){
-            mFetch()
-            .then(products => setProducts(products.filter(product => product.category === cid)))
-            .catch (err => console.log(err))
-            .finally(() => setLoading(false))
+    useEffect(() => {
+        if (cid) {
+            const db = getFirestore()
+            const queryCollection = collection(db, 'Products')
+            const queryFilter = query(queryCollection, where('category', '==', cid))
+            getDocs(queryFilter)
+                .then((res) => setProducts(res.docs.map((prod) => ({ id: prod.id, ...prod.data() }))))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
         } else {
-            mFetch()
-            .then(products => setProducts(products))
-            .catch (err => console.log(err))
-            .finally(() => setLoading(false))
+            const db = getFirestore()
+            const queryCollection = collection(db, 'Products')
+            getDocs(queryCollection)
+                .then((res) => setProducts(res.docs.map((prod) => ({ id: prod.id, ...prod.data() }))))
+                .catch(err => console.log(err))
+                .finally(() => setLoading(false))
         }
-    }, [cid]
-    )
- 
-    return (
-        <Container fluid>
-            {loading ?
-                <Container className="text-center">
-                <Spinner animation="border" role="status" className="mt-5">
-                    <span className="visually-hidden">Loading...</span>
-                </Spinner>
-                </Container>
+    }, [cid])
 
-                :
-                <ItemList products={products} />}
-        </Container>
+    return (
+        <>
+            <HeroCarousel />
+            <Container fluid>
+                {loading ?
+                    <Loading />
+                    :
+                    <ItemList products={products} />}
+            </Container>
+        </>
     )
 }
 
