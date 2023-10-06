@@ -10,7 +10,7 @@ import ItemCount from '../../ItemCount/ItemCount'
 import AddToCartButtons from '../../Buttons/AddToCartButtons/AddToCartButtons';
 import MyButton from '../../Buttons/MyButton/MyButton'
 
-const ItemDetail = ({ item, showModal, showCount, onAdd }) => {
+const ItemDetail = ({ item, showEmailModal, showCount, onAdd }) => {
     return (
         <Container>
             <Card className="my-4 h-100">
@@ -52,8 +52,7 @@ const ItemDetail = ({ item, showModal, showCount, onAdd }) => {
                             }
                         </Card.Body>
                         
-                        {  /* This code block is conditionally rendering the footer section of a Card component based on the
-                            value of `item.stock`. */}
+    
                         {item.stock !== 0 ?
                             <Card.Footer>
                                 {showCount ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd} /> : <AddToCartButtons />}
@@ -61,7 +60,7 @@ const ItemDetail = ({ item, showModal, showCount, onAdd }) => {
                             :
                             <Card.Footer>
                                 <p className='text-danger'>Sold out</p>
-                                <MyButton className='px-4' onClick={showModal} text='Notify me when is back!' />
+                                <MyButton className='px-4' onClick={showEmailModal} text='Notify me when is back!' />
                             </Card.Footer>
                         }
                     </Col>
