@@ -1,6 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
+//React-router-dom imports
 import { Link } from "react-router-dom";
+
+//Boostrap compoents imports
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 

@@ -1,3 +1,15 @@
+/**
+ * The `useMyFormik` function is a custom hook that uses Formik to handle form validation and
+ * submission, and returns the Formik object.
+ * @param handleCheckout - handleCheckout is a function that will be called when the form is submitted.
+ * It takes the form values as an argument and performs some action, such as submitting the form data
+ * to a server.
+ * @param setShowForm - `setShowForm` is a function that is used to control the visibility of the form.
+ * It is typically used to show or hide the form based on certain conditions or user interactions.
+ * @returns The code is returning an object with a property called "formik" which contains the
+ * useFormik hook.
+ */
+
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 

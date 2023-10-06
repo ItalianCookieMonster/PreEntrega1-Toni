@@ -2,7 +2,7 @@
 
 :root {
     --clr-accent-primary: #baa287;
-    --clr-accent-secondary: #388e3c;
+    --clr-accent-hover:#a79179;
 
     --clr-bg-neutral: #f5f5f5;
     --clr-text-neutral: #757575;
@@ -37,6 +37,7 @@
 body{
     background-color: var(--clr-bg-neutral);
     font-family: var(--ff-primary);
+    font-weight: var(--fw-regular);
     color: var(--clr-text-neutral);
     min-height: 100vh;
     display: flex;
@@ -52,6 +53,10 @@ body{
 a {
     color: inherit;
     text-decoration: inherit;
+}
+
+.bg-accent{
+    background-color: var(--clr-accent-primary);
 }
 
 

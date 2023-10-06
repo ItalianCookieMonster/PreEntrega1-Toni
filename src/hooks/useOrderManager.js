@@ -1,3 +1,9 @@
+/**
+ * The `useOrderManager` function is a custom hook that handles the creation of an order, updating the
+ * stock of products, and adding the order to the database.
+ * @returns The `useOrderManager` hook returns an object with two properties: `createOrder` and
+ * `orderID`.
+ */
 import { useState } from "react";
 import { useCartContext } from "../components/context/CartContext";
 import { getFirestore, addDoc, collection, doc, updateDoc } from "firebase/firestore";

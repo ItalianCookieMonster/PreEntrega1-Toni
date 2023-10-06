@@ -1,13 +1,14 @@
+// React-router-dom import
 import { Link } from 'react-router-dom'
 
+//Boostrap imports
 import Container from "react-bootstrap/Container"
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 const Footer = () => {
     return (
-
-        <footer className="font-small pt-3 bg-primary text-light mt-auto ">
+        <footer className="font-small pt-3 text-beige mt-auto bg-accent">
             <Container className="text-md-left border-top">
                 <Row className="align-items-baseline">
                     <Col className="footer-copyright text-center py-3 d-flex align-items-center">

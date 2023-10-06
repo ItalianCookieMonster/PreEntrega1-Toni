@@ -1,35 +1,43 @@
 /* eslint-disable no-unused-vars */
+//React imports
 import { useState, useEffect } from "react"
-import { useParams } from 'react-router-dom'
+
+//Custom hooks imports
 import { useCartContext } from '../context/CartContext';
+
+//External libraries imports
+import { useParams } from 'react-router-dom'
 import { getFirestore, doc, getDoc } from 'firebase/firestore'
+
+//Boostrap components imports
 import Container from 'react-bootstrap/Container';
 
-
+//Component imports
 import ItemDetail from './ItemDetail/ItemDetail'
 import Loading from '../Loading/Loading'
 import NotifyMeModal from '../Modals/NotifyMeModal/NotifyMeModal'
-import MyOffCanvas from "../OffCanvas/MyOffCanvas";
 import ProductAddedModal from "../Modals/ProductAddedModal/ProductAddedModal";
-// import MyToast from "../Toasts/MyToast";
+
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState([])
     const [loading, setLoading] = useState(true);
     const [showEmailModal, setShowEmailModal] = useState(false);
-    // const [showOffCanvas, setShowOffCanvas] = useState(false);
     const [showProductModal, setShowProductModal] = useState(false);
-    const [items, setItems] = useState(null)
+    const [nrProds, setNrProds] = useState(null)
     const { pid } = useParams()
     const [showCount, setShowCount] = useState(true)
-    const { addToCart, totalPrice } = useCartContext()
+    const { addToCart } = useCartContext()
 
 
+    /**
+     * The function "onAdd" is used to add a specified quantity of an item to the cart and display a
+     * product modal.
+     */
     const onAdd = (quantity) => {
         setShowCount(false)
-        // setShowOffCanvas(true)
         setShowProductModal(true)
-        setItems(quantity)
+        setNrProds(quantity)
         addToCart({ ...item, quantity })
     }
 
@@ -59,19 +67,10 @@ const ItemDetailContainer = () => {
                 handleClose={() => setShowEmailModal(false)}
             />
 
-            {/* <MyOffCanvas
-                show={showOffCanvas}
-                handleClose={() => setShowOffCanvas(false)}
-                items={items}
-                totalPrice={totalPrice}
-                item={item}
-            /> */}
-
             <ProductAddedModal
                 show={showProductModal}
                 handleClose={() => setShowProductModal(false)}
-                items={items}
-                totalPrice={totalPrice}
+                nrProds={nrProds}
                 item={item}
             />
         </Container>

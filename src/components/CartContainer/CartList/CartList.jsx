@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-// import ListGroup from "react-bootstrap/ListGroup"
+// Boostrap imports
 import Table from 'react-bootstrap/Table'
 
+// Component imports
 import Cart from "../Cart/Cart"
 
 const CartList = ({ cart }) => {
