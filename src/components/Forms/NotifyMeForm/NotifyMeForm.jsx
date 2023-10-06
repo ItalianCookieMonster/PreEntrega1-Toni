@@ -1,8 +1,13 @@
 /* eslint-disable react/prop-types */
+import { useState } from 'react'
 //Boostrap imports
 import Form from 'react-bootstrap/Form';
+//Components imports
+import MyButton from '../../Buttons/MyButton/MyButton'
 
-const NotifyMeForm = ({formik}) => {
+
+const NotifyMeForm = ({ handleClose }) => {
+    const [email, setEmail] = useState("");
     return (
         <Form>
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
@@ -11,10 +16,13 @@ const NotifyMeForm = ({formik}) => {
                     type="email"
                     placeholder="name@example.com"
                     autoFocus
-                    value={formik.values.email}
-                    onChange={formik.handleChange}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
             </Form.Group>
+            <div className='d-flex justify-content-end'>
+                <MyButton onClick={handleClose} text='Send' />
+            </div>
         </Form>
     )
 }

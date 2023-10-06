@@ -5,9 +5,10 @@ import Modal from 'react-bootstrap/Modal';
 
 //Components imports
 import NotifyMeForm from '../../Forms/NotifyMeForm/NotifyMeForm';
-import MyButton from '../../Buttons/MyButton/MyButton';
+
 
 const NotifyMeModal = ({ handleClose, show }) => {
+    
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -16,9 +17,6 @@ const NotifyMeModal = ({ handleClose, show }) => {
             <Modal.Body>
                 <NotifyMeForm />
             </Modal.Body>
-            <Modal.Footer>
-                <MyButton onClick={handleClose} text='Send' />
-            </Modal.Footer>
         </Modal>
     )
 }

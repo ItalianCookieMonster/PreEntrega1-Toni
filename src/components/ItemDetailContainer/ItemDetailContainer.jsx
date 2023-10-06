@@ -58,7 +58,7 @@ const ItemDetailContainer = () => {
                 :
                 <ItemDetail
                     item={item}
-                    showModal={() => setShowEmailModal(true)}
+                    showEmailModal={() => setShowEmailModal(true)}
                     onAdd={onAdd}
                     showCount={showCount}
                 />}
