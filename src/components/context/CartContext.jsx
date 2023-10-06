@@ -1,7 +1,9 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/prop-types */
+// React imports
 import { createContext } from 'react'
 import { useState, useContext } from 'react';
+
 const CartContext = createContext([]);
 
 export const useCartContext = () => useContext(CartContext);
@@ -25,11 +27,9 @@ const CartContextProvider = ({ children }) => {
 
     const shipping = totalPrice > 80 ? 0 : 7.99
 
-    const total = shipping + totalPrice
+    const total = (shipping + totalPrice)
 
     const deleteProduct = id => setCart(cart.filter((i) => i.id !== id))
-
-    
 
     const deleteCart = () => {
         setCart([]);

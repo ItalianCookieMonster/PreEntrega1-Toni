@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+// Context import 
 import { useCartContext } from "../../context/CartContext"
 
 const Cart = ({ item }) => {
@@ -10,7 +11,11 @@ const Cart = ({ item }) => {
         <tr>
             <td colSpan={2}>
                 <div className="d-lg-flex align-items-center">
-                    <img src={item.imageUrl} alt={item.name} width={100} className='d-none d-lg-block mx-2' />
+                    <img
+                        src={item.imageUrl}
+                        alt={item.name}
+                        width={100}
+                        className='d-none d-lg-block mx-2' />
                     <h5 className="mt-2">{item.name}</h5>
                 </div>
             </td>

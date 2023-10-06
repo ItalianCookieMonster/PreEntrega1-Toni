@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import Item from "../Item/Item"
 
+//Boostrap imports
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+
+//Component imports
+import Item from "../Item/Item"
 
 const ItemList = ({ products }) => {
     return (

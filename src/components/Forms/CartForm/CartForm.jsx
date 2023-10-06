@@ -1,6 +1,10 @@
 /* eslint-disable react/prop-types */
+//Boostrap component imports
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import Container from 'react-bootstrap/Container'
+
+//Component imports
+import MyButton from '../../Buttons/MyButton/MyButton'
 
 
 export const CartForm = ({ formik }) => {
@@ -58,10 +62,9 @@ export const CartForm = ({ formik }) => {
                 />
                 {formik.errors.privacy && <small className='text-danger'>{formik.errors.privacy}</small>}
             </Form.Group>
-
-            <Button type="submit">
-                Submit
-            </Button>
+            <Container className='text-end'>
+                <MyButton type="submit" text='Send' className='m-1' />
+            </Container>
         </Form>
     )
 }

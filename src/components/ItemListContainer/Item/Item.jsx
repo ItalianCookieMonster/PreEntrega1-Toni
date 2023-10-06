@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
+//React-router-dom imports
 import { Link } from 'react-router-dom'
 
-import Button from 'react-bootstrap/Button';
+//Boostrap components imports
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
+
+//Components imports
+import MyButton from '../../Buttons/MyButton/MyButton';
 
 const Item = ({ product }) => {
     return (
@@ -22,11 +25,14 @@ const Item = ({ product }) => {
                         <Card.Title>{product.name}</Card.Title>
                         <Card.Text className='py-2'>{product.description}</Card.Text>
                     </Card.Body>
+                    {      /* This code is conditionally rendering different elements based on the value of
+          `                 product.stock`. */}
                     {product.stock !== 0 ?
-                        <Button className='m-4'>Details</Button> :
+                        <MyButton className='m-4' text='Details' />
+                        :
                         <>
                             <p className="text-danger text-center">SOLD OUT</p>
-                            <Button className="m-4 ">Notify me when is back</Button>
+                            <MyButton className="m-4" text='Notify me when is back' />
                         </>
                     }
 
