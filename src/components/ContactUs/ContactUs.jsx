@@ -10,7 +10,7 @@ const ContactUs = () => {
                 height='400px'
                 className='mt-3'
                 style={{ borderRadius: '50%' }}
-                src='/public/assets/img/under-construction.png'
+                src='/assets/img/under-construction.png'
                 alt='under construction'
             />
         </Container>

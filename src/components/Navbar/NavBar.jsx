@@ -36,7 +36,7 @@ const NavBar = () => {
                 <NavLink className="navbar-brand text-beige" to="/">
                     <img
                         alt=""
-                        src="/public/assets/img/SustainableLogo3.png"
+                        src="/assets/img/SustainableLogo3.png"
                         width="30"
                         height="30"
                         className="d-inline-block align-top"
