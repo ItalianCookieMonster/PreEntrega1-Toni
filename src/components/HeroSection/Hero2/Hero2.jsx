@@ -15,7 +15,7 @@ const Hero2 = () => {
             <Container className="py-5 px-4 text-center align-bottom" >
                 <h1>Explore Our Sustainable On The Go Products</h1>
                 <p className="my-4 lead">Discover a world of sustainable solutions in our on the go category. Say good by to littering.</p>
-                <Link to='/categories/on-the-go'>
+                <Link to='/category/on-the-go'>
                     <Button variant="outline-light">Shop Now</Button>
                 </Link>
             </Container>
