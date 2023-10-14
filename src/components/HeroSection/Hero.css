@@ -23,8 +23,18 @@
     color: var(--clr-bg-neutral);
 }
 
+.hero-container-about {
+    display: flex;
+    align-items: flex-end;
+}
+
+
 @media (min-width: 992px) {
     .hero-container {
         height: 500px;
+    }
+
+    .hero-container-about {
+        height: 300px;
     }
 }

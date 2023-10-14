@@ -1,15 +1,3 @@
-/**
- * The `useMyFormik` function is a custom hook that uses Formik to handle form validation and
- * submission, and returns the Formik object.
- * @param handleCheckout - handleCheckout is a function that will be called when the form is submitted.
- * It takes the form values as an argument and performs some action, such as submitting the form data
- * to a server.
- * @param setShowForm - `setShowForm` is a function that is used to control the visibility of the form.
- * It is typically used to show or hide the form based on certain conditions or user interactions.
- * @returns The code is returning an object with a property called "formik" which contains the
- * useFormik hook.
- */
-
 import { useFormik } from "formik";
 import * as Yup from 'yup';
 
@@ -19,7 +7,8 @@ export const useMyFormik = (handleCheckout, setShowForm) => {
             name: '',
             email: '',
             phoneNumber: '',
-            privacy: false
+            privacy: false,
+            surname: '',
         },
         validationSchema: Yup.object({
             name: Yup.string()
@@ -36,8 +25,60 @@ export const useMyFormik = (handleCheckout, setShowForm) => {
         onSubmit: (values) => {
             handleCheckout(values)
             setShowForm(false)
-        }
+        },
+
     })
 
-    return { formik }
+    const formikSignUp = useFormik({
+        initialValues: {
+            name: '',
+            email: '',
+            surname: '',
+        },
+
+        validationSchema: Yup.object({
+            name: Yup.string()
+                .required('A name is required')
+                .max(40, 'Should be 40 characters or less'),
+            email: Yup.string()
+                .email('Invalid email')
+                .required('An email is required'),
+            surname: Yup.string()
+                .required('A surname is required')
+                .max(40, 'Should be 40 characters or less'),
+        }),
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    const formikContact = useFormik({
+        initialValues: {
+            name: '',
+            email: '',
+            surname: '',
+            message: '',
+        },
+
+        validationSchema: Yup.object({
+            name: Yup.string()
+                .required('A name is required')
+                .max(40, 'Should be 40 characters or less'),
+            email: Yup.string()
+                .email('Invalid email')
+                .required('An email is required'),
+            surname: Yup.string()
+                .required('A surname is required')
+                .max(40, 'Should be 40 characters or less'),
+            message: Yup.string()
+                .required('A message is required')
+            
+        }),
+
+        onSubmit: (values) => {
+            console.log(values)
+        },
+    })
+
+    return { formik, formikSignUp, formikContact}
 }

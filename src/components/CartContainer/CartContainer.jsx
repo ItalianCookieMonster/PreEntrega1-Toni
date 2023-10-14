@@ -33,6 +33,11 @@ const CartContainer = () => {
         setShowIdModal(true)
     }
 
+    const handleCloseIdModal = () => {
+        setShowIdModal(false)
+        deleteCart()
+    }
+
     const { formik } = useMyFormik(handleCheckout, setShowForm)
     const { createOrder, orderID } = useOrderManager()
 
@@ -79,7 +84,7 @@ const CartContainer = () => {
                         <IDModal
                             orderID={orderID}
                             show={showIdModal}
-                            handleClose={() => setShowIdModal(false)}
+                            handleClose={handleCloseIdModal}
                         />
 
                     </>
