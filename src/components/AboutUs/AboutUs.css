@@ -1,0 +1,22 @@
+.welcome-container {
+    width: 90%;
+    margin: 30px auto;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.about-title {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-img {
+    width: 50%;
+}
+
+@media (min-width: 992px) {
+    .welcome-container {
+        margin: 50px auto;
+        width: 70%;
+    }
+}

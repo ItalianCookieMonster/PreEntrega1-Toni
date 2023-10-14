@@ -11,7 +11,7 @@ import CartForm from "../../Forms/CartForm/CartForm"
  * 
  */
 
-const FormModal = ({ handleClose, show, totalPrice, handleOnChange, formik }) => {
+const FormModal = ({ handleClose, show, totalPrice, formik }) => {
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -19,7 +19,6 @@ const FormModal = ({ handleClose, show, totalPrice, handleOnChange, formik }) =>
             </Modal.Header>
             <Modal.Body>
                 <CartForm
-                    handleOnChange={handleOnChange}
                     formik={formik}
                 />
             </Modal.Body>

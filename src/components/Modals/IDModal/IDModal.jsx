@@ -4,8 +4,10 @@
 import { Link } from "react-router-dom";
 
 //Boostrap compoents imports
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+
+//Components imports
+import MyButton from "../../Buttons/MyButton/MyButton";
 
 const IDModal = ({ show, handleClose, orderID }) => {
     return (
@@ -16,13 +18,9 @@ const IDModal = ({ show, handleClose, orderID }) => {
                 </Modal.Header>
                 <Modal.Body>Your order ID is: {orderID}</Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
+                    <MyButton variant="secondary" onClick={handleClose} text="Close" />
                     <Link to="/">
-                        <Button variant="primary" onClick={handleClose}>
-                            Go back to home
-                        </Button>
+                        <MyButton variant="primary" onClick={handleClose} text="Go back home" />
                     </Link>
                 </Modal.Footer>
             </Modal>
